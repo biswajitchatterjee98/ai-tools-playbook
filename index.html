@@ -420,6 +420,14 @@ main > .topic-panel > p:first-of-type strong{
     if (toggle) {
       e.preventDefault();
       var topicId = (toggle.getAttribute('data-target') || '').replace(/^#/, '');
+      if (toggle.getAttribute('aria-expanded') === 'true') {
+        toggle.setAttribute('aria-expanded', 'false');
+        var openTopic = toggle.closest('.toc-topic');
+        if (openTopic) openTopic.classList.remove('is-active');
+        var openSubs = toggle.parentElement.querySelector('.toc-subs');
+        if (openSubs) openSubs.hidden = true;
+        return;
+      }
       showTopic(topicId, topicId);
       history.replaceState(null, '', '#' + topicId);
       return;
