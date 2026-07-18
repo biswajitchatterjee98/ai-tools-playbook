@@ -1,6 +1,6 @@
 # AI Tools Playbook
 
-A practical, in-depth guide to **9 modern tools**: what each one is, how to use it, how to use it efficiently, real examples, a prompt method (**STAR** or **CREATE**) for each tool, benefits, and curated media.
+A practical, in-depth guide to **9 modern tools**: what each one is, how to use it, how to use it efficiently, real examples, prompting with **STAR** and **CREATE**, benefits, and curated media.
 
 **Tools covered:** ChatGPT · Claude · E-mail · Gamma · Google Workspace with Gemini · make.com · Midjourney · NotebookLM · Notion
 
@@ -14,16 +14,16 @@ For every tool you will find the same structure:
 2. **How to use**: get productive in 5-6 steps  
 3. **How to use efficiently**: the habits that save hours  
 4. **Real-world example**: a concrete implementation you can copy  
-5. **Prompt method**: either **STAR** or **CREATE** (never both in the same chapter)  
+5. **Prompt method**: we will cover **2 methods**, **STAR** and **CREATE**  
 6. **Benefits**: what you gain when you work this way  
 7. **Media**: topic images and YouTube videos  
 
-**Two prompt methods used in this playbook (one per tool):**
+**In this playbook we will be covering 2 prompt methods: STAR and CREATE.**
 
-- **STAR**: **Situation**, **Task**, **Action**, **Result**. Best when you already know the outcome and need a complete brief. Used in: ChatGPT, E-mail, Gamma, Midjourney, Notion.  
-- **CREATE**: **Context**, **Role**, **Expectation**, **Audience**, **Task**, **Examples**. Best when tone, audience fit, and sample quality matter. Used in: Claude, Google Workspace with Gemini, make.com, NotebookLM.  
+- **STAR**: **Situation**, **Task**, **Action**, **Result**. Best when you already know the outcome and need a complete brief. Practiced with: ChatGPT, E-mail, Gamma, Midjourney, Notion.  
+- **CREATE**: **Context**, **Role**, **Expectation**, **Audience**, **Task**, **Examples**. Best when tone, audience fit, and sample quality matter. Practiced with: Claude, Google Workspace with Gemini, make.com, NotebookLM.  
 
-Pick the method the chapter teaches. Do not mix STAR and CREATE inside one tool section.
+Follow the method shown in each chapter as you work through the tools.
 
 ---
 
@@ -1436,7 +1436,7 @@ When these tools work together, a high-leverage loop looks like this:
 7. **E-mail**: send the update, ask, or proposal (STAR)  
 8. **make.com**: automate repetitive handoffs (form → CRM → Slack → Notion) (CREATE)
 
-You do not need all nine on day one. Pick the 2-3 that remove your biggest weekly pain, master that chapter's prompt method (STAR or CREATE), then add the next tool.
+You do not need all nine on day one. Pick the 2-3 that remove your biggest weekly pain, practice the STAR or CREATE method shown in that chapter, then add the next tool.
 
 ---
 
@@ -1460,5 +1460,5 @@ You do not need all nine on day one. Pick the 2-3 that remove your biggest weekl
 
 - [ ] Skim each tool's **efficient use** section and mark 1 habit to adopt this week  
 - [ ] Try one **real-world example** end to end (not all nine)  
-- [ ] Write one **STAR** or **CREATE** prompt (matching the tool you chose) and save it in Notion  
+- [ ] Write one **STAR** prompt and one **CREATE** prompt for your real work and save them in Notion  
 - [ ] Keep topic images and video practice linked from your own notes  
