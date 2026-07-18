@@ -393,13 +393,16 @@ main > .topic-panel > p:first-of-type strong{
       }
     });
 
-    var targetEl = document.getElementById(scrollToId || topicId);
-    if (targetEl) {
+    if (scrollToId) {
+      var targetEl = document.getElementById(scrollToId);
+      var isTopicRoot = scrollToId === topicId;
       setTimeout(function () {
-        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (isTopicRoot) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }, 30);
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
@@ -460,7 +463,7 @@ main > .topic-panel > p:first-of-type strong{
     showTopic(initialTopic, location.hash.replace(/^#/, ''));
   } else {
     var first = document.querySelector('.topic-panel');
-    if (first) showTopic(first.getAttribute('data-topic-id'), first.getAttribute('data-topic-id'));
+    if (first) showTopic(first.getAttribute('data-topic-id'), null);
   }
 })();
 </script>
