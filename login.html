@@ -78,30 +78,11 @@ body{
   background:#fdeceb;color:#8a2f2a;font-weight:600;font-size:.92rem;
 }
 .error[hidden]{display:none!important}
-.demo{
-  margin-top:1.4rem;padding-top:1.15rem;border-top:1px solid var(--line);
-}
-.demo summary{
-  cursor:pointer;font-weight:700;color:var(--navy);list-style:none;
-  display:flex;align-items:center;justify-content:space-between;gap:.75rem;
-}
-.demo summary::-webkit-details-marker{display:none}
-.demo summary::after{content:"▾";opacity:.7}
-.demo[open] summary::after{content:"▴"}
-.demo-note{margin:.55rem 0 .8rem;color:var(--muted);font-size:.9rem}
-.demo-list{
-  margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.45rem .7rem;
-  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.8rem;
-}
-.demo-list li{
-  padding:.45rem .55rem;border-radius:8px;background:var(--accent-soft);color:#0d4f46;
-}
 @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 @media(max-width:860px){
   .shell{grid-template-columns:1fr}
   .brand-pane{min-height:auto;padding:1.6rem 1.4rem}
   .form-pane{padding:1.6rem 1.35rem 1.5rem}
-  .demo-list{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -120,8 +101,8 @@ body{
   </section>
   <section class="form-pane">
     <h2>Sign in</h2>
-    <p class="form-lead">Use one of the demo accounts to continue.</p>
-    <p id="login-error" class="error" hidden>Incorrect username or password. Try a demo account below.</p>
+    <p class="form-lead">Enter the username and password you were given to continue.</p>
+    <p id="login-error" class="error" hidden>Incorrect username or password. Check your details and try again.</p>
     <form id="login-form" autocomplete="on">
       <div class="field">
         <label for="username">Username</label>
@@ -135,12 +116,7 @@ body{
         <button class="login-btn" type="submit">Open playbook</button>
       </div>
     </form>
-    <details class="demo">
-      <summary>Demo accounts (10)</summary>
-      <p class="demo-note">Any pair below works. Session lasts until you close this browser tab set.</p>
-      <ul class="demo-list" id="demo-list"></ul>
-    </details>
-  </section>
+</section>
 </div>
 <script src="auth.js"></script>
 <script>
@@ -150,13 +126,6 @@ body{
     location.replace(already);
     return;
   }
-
-  var list = document.getElementById('demo-list');
-  PlaybookAuth.USERS.forEach(function (user) {
-    var li = document.createElement('li');
-    li.textContent = user.username + ' / ' + user.password;
-    list.appendChild(li);
-  });
 
   document.getElementById('login-form').addEventListener('submit', function (e) {
     e.preventDefault();
