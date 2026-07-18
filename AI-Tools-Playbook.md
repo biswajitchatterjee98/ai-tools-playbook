@@ -1,6 +1,6 @@
 # AI Tools Playbook
 
-A practical, in-depth guide to **9 modern tools**: what each one is, how to use it, how to use it efficiently, real examples, a STAR prompt method for each tool, benefits, and curated media.
+A practical, in-depth guide to **9 modern tools**: what each one is, how to use it, how to use it efficiently, real examples, a prompt method (**STAR** or **CREATE**) for each tool, benefits, and curated media.
 
 **Tools covered:** ChatGPT · Claude · E-mail · Gamma · Google Workspace with Gemini · make.com · Midjourney · NotebookLM · Notion
 
@@ -14,11 +14,16 @@ For every tool you will find the same structure:
 2. **How to use**: get productive in 5-6 steps  
 3. **How to use efficiently**: the habits that save hours  
 4. **Real-world example**: a concrete implementation you can copy  
-5. **STAR method**: Situation, Task, Action, Result for better prompts and briefs  
+5. **Prompt method**: either **STAR** or **CREATE** (never both in the same chapter)  
 6. **Benefits**: what you gain when you work this way  
 7. **Media**: topic images and YouTube videos  
 
-**About STAR in this playbook:** STAR stops vague instructions. You describe the **Situation**, define the **Task**, specify the **Action**, and describe the **Result**. Every chapter includes a worked STAR template.
+**Two prompt methods used in this playbook (one per tool):**
+
+- **STAR**: **Situation**, **Task**, **Action**, **Result**. Best when you already know the outcome and need a complete brief. Used in: ChatGPT, E-mail, Gamma, Midjourney, Notion.  
+- **CREATE**: **Context**, **Role**, **Expectation**, **Audience**, **Task**, **Examples**. Best when tone, audience fit, and sample quality matter. Used in: Claude, Google Workspace with Gemini, make.com, NotebookLM.  
+
+Pick the method the chapter teaches. Do not mix STAR and CREATE inside one tool section.
 
 ---
 
@@ -322,41 +327,48 @@ After every important output, ask Claude: "What did you assume?" Then verify tho
 
 **Ops variant:** upload three vendor contracts and ask for a comparison table of renewal dates, notice periods, and risk clauses (still have Legal confirm).
 
-## 2.5 STAR method for writing a strong Claude prompt / brief
+## 2.5 CREATE method for writing a strong Claude prompt / brief
 
-Use **STAR** so your instructions are complete: **Situation**, **Task**, **Action**, **Result**.
+Use **CREATE** so your instructions are complete: **Context**, **Role**, **Expectation**, **Audience**, **Task**, **Examples**.
 
 | Letter | Meaning | What you write |
 |--------|---------|----------------|
-| **S** | Situation | Context, audience, constraints, and why this matters now |
-| **T** | Task | The exact job the tool must do |
-| **A** | Action | Role, steps, tone, rules, and process |
-| **R** | Result | Format, length, and definition of done |
+| **C** | Context | Background, constraints, tools/files in play, and why this matters now |
+| **R** | Role | Who the AI (or you) should act as |
+| **E** | Expectation | Quality bar, length, tone, and what "good" looks like |
+| **A** | Audience | Who will read or use the output |
+| **T** | Task | The exact job to complete |
+| **E** | Examples | 1-2 samples, anti-examples, or "match this style" references |
 
-**Copy-paste STAR template for Claude:**
+**Copy-paste CREATE template for Claude:**
 
-> **Situation:** I am [role]. Working inside Project "[name]" with uploaded sources [list]. Audience: [who].  
-> **Task:** Produce [deliverable] grounded only in the uploaded sources.  
-> **Action:** Act as [editor/analyst]. Process: extract → structure → simplify → flag gaps. Rules: never invent policy/metrics; ask if missing.  
-> **Result:** [format]. Include Assumptions, Open questions, and Source notes.
+> **Context:** Working inside Project "[name]" with uploaded sources [list]. Constraints: [do not invent / house style / deadline].  
+> **Role:** Act as [editor / analyst / proposal writer].  
+> **Expectation:** Ground answers only in uploaded sources. Flag gaps. Reading level: [level]. Include Assumptions + Open questions.  
+> **Audience:** [who will use this].  
+> **Task:** Produce [deliverable].  
+> **Examples:** Match the tone of [golden sample / pasted paragraph]. Avoid [fluff / invented policy].
 
-**Worked STAR example:**
+**Worked CREATE example:**
 
-> **Situation:** HR lead. Project "HR Onboarding" with policy PDF + welcome email. Audience: first-week employees.  
-> **Task:** Create a 12-question FAQ for week-1 rules only.  
-> **Action:** Act as plain-language editor. Flag conflicts. No invented policy. Grade-8 reading level.  
-> **Result:** FAQ + Day-1 checklist + list of unclear clauses for Legal.
+> **Context:** Project "HR Onboarding" with policy PDF + welcome email. Need week-1 clarity only.  
+> **Role:** Plain-language editor for HR.  
+> **Expectation:** No invented policy. Grade-8 reading level. Flag conflicts for Legal.  
+> **Audience:** First-week employees.  
+> **Task:** 12-question FAQ + Day-1 checklist.  
+> **Examples:** Prefer short answers like: "Q: When is payroll? A: Last working day of each month. See Policy §4." Avoid essay-length replies.
 
-**Weak vs STAR:**
+**Weak vs CREATE:**
 
-- Weak: "Summarize this PDF."
-- STAR: STAR brief that names audience, week-1 scope, no-invention rule, and required outputs
+- Weak: "Summarize this PDF."  
+- CREATE: full CREATE brief with Project sources, audience, no-invention rule, and a sample answer shape  
 
 **Extra tips for this tool:**
 
 - Put source-of-truth rules in Project instructions once.  
 - Ask Claude to cite which uploaded file each claim came from.  
 - Keep Projects narrow so answers stay on-topic.
+
 ## 2.6 Benefits
 
 - Higher-quality long-form writing with less rewriting  
@@ -771,41 +783,48 @@ Move to Gamma for design-heavy decks, NotebookLM for multi-source research, Clau
 
 **Classroom variant:** teachers draft parent updates in Docs with Gemini, then share.
 
-## 5.5 STAR method for writing a strong Gemini in Google Workspace prompt / brief
+## 5.5 CREATE method for writing a strong Gemini in Google Workspace prompt / brief
 
-Use **STAR** so your instructions are complete: **Situation**, **Task**, **Action**, **Result**.
+Use **CREATE** so your instructions are complete: **Context**, **Role**, **Expectation**, **Audience**, **Task**, **Examples**.
 
 | Letter | Meaning | What you write |
 |--------|---------|----------------|
-| **S** | Situation | Context, audience, constraints, and why this matters now |
-| **T** | Task | The exact job the tool must do |
-| **A** | Action | Role, steps, tone, rules, and process |
-| **R** | Result | Format, length, and definition of done |
+| **C** | Context | Background, constraints, tools/files in play, and why this matters now |
+| **R** | Role | Who the AI (or you) should act as |
+| **E** | Expectation | Quality bar, length, tone, and what "good" looks like |
+| **A** | Audience | Who will read or use the output |
+| **T** | Task | The exact job to complete |
+| **E** | Examples | 1-2 samples, anti-examples, or "match this style" references |
 
-**Copy-paste STAR template for Gemini in Google Workspace:**
+**Copy-paste CREATE template for Gemini in Google Workspace:**
 
-> **Situation:** Working in [Docs/Sheets/Gmail]. File contains [what]. Audience/reviewer: [who].  
+> **Context:** Working in [Docs / Sheets / Gmail]. Selected content is [what]. File of record stays in Drive.  
+> **Role:** Act as [ops analyst / editor / spreadsheet coach].  
+> **Expectation:** Use only the selected content. Preserve names and numbers. Keep edits reviewable (Suggesting mode when possible).  
+> **Audience:** [reviewer / leadership / teammates].  
 > **Task:** [summarize / rewrite / extract actions / explain formula].  
-> **Action:** Only use the selected content. Keep factual. Preserve names/numbers. Tone: [style].  
-> **Result:** Insert-ready output in [format], plus a short list of items a human must verify.
+> **Examples:** Desired shape: [paste 2-3 bullet sample]. Avoid: [rewriting the whole doc / inventing totals].
 
-**Worked STAR example:**
+**Worked CREATE example:**
 
-> **Situation:** Weekly KPI Sheet with raw exports. Need Monday brief for leadership.  
-> **Task:** Create a summary tab narrative: wins, risks, asks.  
-> **Action:** Do not invent metrics. Flag anomalies. Keep language executive-friendly.  
-> **Result:** Brief paragraphs + bullet asks with proposed owners.
+> **Context:** Weekly KPI Sheet with Friday exports. Building Monday leadership brief in Docs.  
+> **Role:** Operations analyst.  
+> **Expectation:** Do not invent metrics. Flag anomalies. Executive-friendly language.  
+> **Audience:** Leadership team.  
+> **Task:** Create wins / risks / asks narrative from the summary tab.  
+> **Examples:** Ask bullets like "Owner: Priya · Due: Wed · Decision needed: approve vendor X." Avoid vague asks like "we should improve performance."
 
-**Weak vs STAR:**
+**Weak vs CREATE:**
 
-- Weak: "Make this better."
-- STAR: STAR brief naming the app, selected content, no-invention rule, and verification list
+- Weak: "Make this better."  
+- CREATE: CREATE brief naming the app, selection, audience, and a sample output shape  
 
 **Extra tips for this tool:**
 
 - Highlight first, then prompt.  
 - Keep AI edits in Suggesting mode for team review.  
 - Never skip human verification on Sheet formulas and totals.
+
 ## 5.6 Benefits
 
 - Less tool-switching for everyday work  
@@ -917,41 +936,48 @@ Watch operations usage. Inefficient loops or overly frequent schedules can burn 
 
 **Ops variant:** Sheet status "Won" → Drive kickoff folder + Notion checklist.
 
-## 6.5 STAR method for writing a strong make.com scenario design prompt / brief
+## 6.5 CREATE method for writing a strong make.com scenario design brief
 
-Use **STAR** so your instructions are complete: **Situation**, **Task**, **Action**, **Result**.
+Use **CREATE** so your instructions are complete: **Context**, **Role**, **Expectation**, **Audience**, **Task**, **Examples**.
 
 | Letter | Meaning | What you write |
 |--------|---------|----------------|
-| **S** | Situation | Context, audience, constraints, and why this matters now |
-| **T** | Task | The exact job the tool must do |
-| **A** | Action | Role, steps, tone, rules, and process |
-| **R** | Result | Format, length, and definition of done |
+| **C** | Context | Background, constraints, tools/files in play, and why this matters now |
+| **R** | Role | Who the AI (or you) should act as |
+| **E** | Expectation | Quality bar, length, tone, and what "good" looks like |
+| **A** | Audience | Who will read or use the output |
+| **T** | Task | The exact job to complete |
+| **E** | Examples | 1-2 samples, anti-examples, or "match this style" references |
 
-**Copy-paste STAR template for make.com scenario design:**
+**Copy-paste CREATE template for make.com scenario design:**
 
-> **Situation:** Manual process today is [describe]. Pain: [time/errors/delays]. Apps involved: [list].  
-> **Task:** Automate [specific handoff] without changing business rules.  
-> **Action:** Trigger = [event]. Filters = [conditions]. Actions = [ordered steps]. Error path = [notify who]. Logging = [Sheet fields].  
-> **Result:** Live scenario that processes a test record correctly and alerts on failure.
+> **Context:** Manual process today is [describe]. Apps involved: [list]. Pain: [time / errors / delays].  
+> **Role:** You are designing the automation blueprint (I will build modules in make.com).  
+> **Expectation:** Keep business rules unchanged. Include filters, field mapping notes, error path, and a test plan. Prefer simple over clever.  
+> **Audience:** [ops owner / developer who will build it].  
+> **Task:** Specify Trigger → Filters → Actions → Error path → Logging fields.  
+> **Examples:** Good step label: "Filter: email valid AND consent = yes." Bad: "Handle leads somehow."
 
-**Worked STAR example:**
+**Worked CREATE example:**
 
-> **Situation:** Leads from landing form sit until Monday. Sales wants instant Slack + CRM row.  
-> **Task:** Automate form → Sheet → Notion → Slack → welcome email.  
-> **Action:** Filter invalid email/no consent. Map fields exactly. On error, email ops. Log timestamp + lead id.  
-> **Result:** Scenario ON after 3 successful test submissions.
+> **Context:** Landing-form leads sit until Monday. Need Sheet + Notion + Slack + welcome email same night.  
+> **Role:** Automation designer for a coaching business.  
+> **Expectation:** Block invalid email / no consent. On error, email ops. Log timestamp + lead id. Go live only after 3 successful tests.  
+> **Audience:** Sales + ops who will maintain the scenario.  
+> **Task:** Ordered scenario design for form → Sheet → Notion → Slack → welcome email.  
+> **Examples:** Module names like "1. Watch form", "2. Filter consent", "3. Upsert Sheet row". Avoid unnamed generic modules.
 
-**Weak vs STAR:**
+**Weak vs CREATE:**
 
-- Weak: "Automate our leads."
-- STAR: STAR brief with trigger, filters, ordered actions, error path, and test criteria
+- Weak: "Automate our leads."  
+- CREATE: CREATE brief with apps, filters, ordered actions, error path, and naming examples  
 
 **Extra tips for this tool:**
 
 - Draw the flow on paper before clicking modules.  
 - Test edge cases (blank phone, duplicate email).  
 - Name every module for future debugging.
+
 ## 6.6 Benefits
 
 - Removes repetitive copy-paste  
@@ -1196,41 +1222,48 @@ Audio overviews help commute review. Study guides and FAQs help onboarding and e
 
 **Student variant:** class PDFs → quiz + Audio Overview for revision.
 
-## 8.5 STAR method for writing a strong NotebookLM prompt / brief
+## 8.5 CREATE method for writing a strong NotebookLM prompt / brief
 
-Use **STAR** so your instructions are complete: **Situation**, **Task**, **Action**, **Result**.
+Use **CREATE** so your instructions are complete: **Context**, **Role**, **Expectation**, **Audience**, **Task**, **Examples**.
 
 | Letter | Meaning | What you write |
 |--------|---------|----------------|
-| **S** | Situation | Context, audience, constraints, and why this matters now |
-| **T** | Task | The exact job the tool must do |
-| **A** | Action | Role, steps, tone, rules, and process |
-| **R** | Result | Format, length, and definition of done |
+| **C** | Context | Background, constraints, tools/files in play, and why this matters now |
+| **R** | Role | Who the AI (or you) should act as |
+| **E** | Expectation | Quality bar, length, tone, and what "good" looks like |
+| **A** | Audience | Who will read or use the output |
+| **T** | Task | The exact job to complete |
+| **E** | Examples | 1-2 samples, anti-examples, or "match this style" references |
 
-**Copy-paste STAR template for NotebookLM:**
+**Copy-paste CREATE template for NotebookLM:**
 
-> **Situation:** Notebook "[name]" contains sources about [topic]. Audience: [who]. Decision needed: [what].  
-> **Task:** Answer only from uploaded sources: [question].  
-> **Action:** Compare sources, cite claims, separate agreement vs conflict vs unknown. Do not invent outside sources.  
-> **Result:** [briefing/FAQ/study guide] with citations and open questions.
+> **Context:** Notebook "[name]" contains sources about [topic]. Decision needed: [what]. Sources only: [list or count].  
+> **Role:** Act as [research analyst / study coach].  
+> **Expectation:** Answer only from uploaded sources. Cite claims. Separate agreement / conflict / unknown. Do not invent outside facts.  
+> **Audience:** [leadership / students / teammates].  
+> **Task:** Produce [briefing / FAQ / study guide / slide outline].  
+> **Examples:** Citation style: "According to Source 2 (p.4)…". Avoid unsupported claims presented as facts.
 
-**Worked STAR example:**
+**Worked CREATE example:**
 
-> **Situation:** Leadership briefing tomorrow on competitors. Five uploaded sources only.  
-> **Task:** Produce a 1-page executive brief.  
-> **Action:** List agreements, conflicts, unknowns. Cite sources. No external invention.  
-> **Result:** Brief + FAQ + slide outline for Gamma.
+> **Context:** Notebook "Competitor Deep Dive: June" with five uploaded sources. Leadership briefing tomorrow.  
+> **Role:** Product research analyst.  
+> **Expectation:** Cite sources. List agreements, conflicts, and unknowns. No external invention.  
+> **Audience:** Leadership team.  
+> **Task:** 1-page executive brief + FAQ + Gamma slide outline.  
+> **Examples:** Conflict line: "Source 1 says X; Source 4 says Y — unresolved." Avoid: "Experts generally agree…" with no citation.
 
-**Weak vs STAR:**
+**Weak vs CREATE:**
 
-- Weak: "Tell me about these competitors."
-- STAR: STAR brief with notebook mission, citation requirement, and explicit no-invention rule
+- Weak: "Tell me about these competitors."  
+- CREATE: CREATE brief with notebook mission, citation rule, audience, and sample conflict phrasing  
 
 **Extra tips for this tool:**
 
 - Narrow source sets beat giant mixed notebooks.  
 - Always click citations for high-stakes claims.  
 - Convert outputs into Docs/Gamma for delivery.
+
 ## 8.6 Benefits
 
 - Research grounded in your materials  
@@ -1395,15 +1428,15 @@ Use **STAR** so your instructions are complete: **Situation**, **Task**, **Actio
 When these tools work together, a high-leverage loop looks like this:
 
 1. **NotebookLM**: digest source material and extract a brief  
-2. **Claude or ChatGPT**: turn the brief into narrative, scripts, or emails (use STAR)  
-3. **Notion**: store briefs, tasks, and approvals  
-4. **Gamma**: convert approved narrative into slides  
-5. **Midjourney**: create custom visuals for key slides or ads  
-6. **Google Workspace + Gemini**: collaborate on the final Doc or Sheet of record  
-7. **E-mail**: send the update, ask, or proposal  
-8. **make.com**: automate repetitive handoffs (form → CRM → Slack → Notion)
+2. **Claude or ChatGPT**: turn the brief into narrative, scripts, or emails (CREATE for Claude; STAR for ChatGPT)  
+3. **Notion**: store briefs, tasks, and approvals (STAR)  
+4. **Gamma**: convert approved narrative into slides (STAR)  
+5. **Midjourney**: create custom visuals for key slides or ads (STAR)  
+6. **Google Workspace + Gemini**: collaborate on the final Doc or Sheet of record (CREATE)  
+7. **E-mail**: send the update, ask, or proposal (STAR)  
+8. **make.com**: automate repetitive handoffs (form → CRM → Slack → Notion) (CREATE)
 
-You do not need all nine on day one. Pick the 2-3 that remove your biggest weekly pain, master those with STAR prompts, then add the next tool.
+You do not need all nine on day one. Pick the 2-3 that remove your biggest weekly pain, master that chapter's prompt method (STAR or CREATE), then add the next tool.
 
 ---
 
@@ -1427,5 +1460,5 @@ You do not need all nine on day one. Pick the 2-3 that remove your biggest weekl
 
 - [ ] Skim each tool's **efficient use** section and mark 1 habit to adopt this week  
 - [ ] Try one **real-world example** end to end (not all nine)  
-- [ ] Write one **STAR prompt** for your real work and save it in Notion  
+- [ ] Write one **STAR** or **CREATE** prompt (matching the tool you chose) and save it in Notion  
 - [ ] Keep topic images and video practice linked from your own notes  
