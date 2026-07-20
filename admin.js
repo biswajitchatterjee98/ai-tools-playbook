@@ -1,4 +1,8 @@
 (function () {
+  var LEARNER_USERS = [
+    'demo', 'learner1', 'learner2', 'trainer', 'guest', 'student1', 'student2', 'webisdom', 'traininglobe'
+  ];
+
   var state = { manifest: null, policies: {}, grants: [], users: [], selectedSection: null };
 
   function msg(text, isError) {
@@ -27,32 +31,51 @@
     return days + 'd ' + hours + 'h';
   }
 
+  function loadManifestLocal() {
+    return fetch('content-manifest.json').then(function (r) { return r.json(); }).catch(function () {
+      return { sections: [] };
+    });
+  }
+
+  function loadLocalUsers() {
+    state.users = LEARNER_USERS.map(function (name) {
+      return { username: name, role: 'learner', is_active: 'TRUE' };
+    });
+  }
+
   function loadData() {
-    if (!PlaybookApi.configured()) {
-      msg('Configure API_URL in config.js and deploy the Google Apps Script backend.', true);
-      return Promise.resolve();
-    }
-    return PlaybookApi.adminGetData(PlaybookAuth.currentToken()).then(function (result) {
-      if (!result.ok) {
-        msg(result.error || 'Could not load admin data.', true);
+    return loadManifestLocal().then(function (manifest) {
+      state.manifest = manifest;
+      if (!PlaybookApi.configured()) {
+        loadLocalUsers();
+        renderAll();
+        msg('Section list loaded. Set API_URL in config.js and deploy Google Apps Script to save policies and grants.', true);
         return;
       }
-      state.manifest = result.manifest;
-      state.grants = result.grants || [];
-      state.users = result.users || [];
-      state.policies = {};
-      (result.policies || []).forEach(function (p) {
-        state.policies[String(p.section_id)] = p;
+      return PlaybookApi.adminGetData(PlaybookAuth.currentToken()).then(function (result) {
+        if (!result.ok) {
+          loadLocalUsers();
+          renderAll();
+          msg(result.error || 'Could not load admin data from API. Showing local section list only.', true);
+          return;
+        }
+        if (result.manifest && result.manifest.sections) state.manifest = result.manifest;
+        state.grants = result.grants || [];
+        state.users = result.users || [];
+        state.policies = {};
+        (result.policies || []).forEach(function (p) {
+          state.policies[String(p.section_id)] = p;
+        });
+        renderAll();
+        msg('');
       });
-      renderAll();
-      msg('');
     });
   }
 
   function renderTree() {
     var root = document.getElementById('section-tree');
     root.innerHTML = '';
-    if (!state.manifest) return;
+    if (!state.manifest || !state.manifest.sections) return;
 
     state.manifest.sections.forEach(function (sec) {
       var item = document.createElement('div');
@@ -128,6 +151,12 @@
     renderGrants();
   }
 
+  function needsApi(action) {
+    if (PlaybookApi.configured()) return false;
+    msg('Connect API_URL in config.js before you can ' + action + '.', true);
+    return true;
+  }
+
   document.querySelectorAll('.tab').forEach(function (tab) {
     tab.addEventListener('click', function () {
       document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('is-active'); });
@@ -141,8 +170,9 @@
 
   document.getElementById('policy-form').addEventListener('submit', function (e) {
     e.preventDefault();
+    if (needsApi('save policies')) return;
     var sectionId = document.getElementById('policy-section-id').value;
-    if (!sectionId) return;
+    if (!sectionId) return msg('Select a section first.', true);
     PlaybookApi.adminSetPolicy(
       PlaybookAuth.currentToken(),
       sectionId,
@@ -157,6 +187,7 @@
 
   document.getElementById('manual-grant-form').addEventListener('submit', function (e) {
     e.preventDefault();
+    if (needsApi('grant access')) return;
     var sectionId = document.getElementById('policy-section-id').value;
     if (!sectionId) return msg('Select a section first.', true);
     var expires = document.getElementById('grant-expires').value;
@@ -179,6 +210,7 @@
     var revoke = e.target.getAttribute('data-revoke');
     var extend = e.target.getAttribute('data-extend');
     if (approve) {
+      if (needsApi('approve requests')) return;
       PlaybookApi.adminReviewRequest(PlaybookAuth.currentToken(), approve, 'approve', '', '').then(function (result) {
         if (!result.ok) return msg(result.error || 'Approve failed.', true);
         msg('Request approved.');
@@ -186,6 +218,7 @@
       });
     }
     if (reject) {
+      if (needsApi('reject requests')) return;
       PlaybookApi.adminReviewRequest(PlaybookAuth.currentToken(), reject, 'reject', '', 'Rejected by admin').then(function (result) {
         if (!result.ok) return msg(result.error || 'Reject failed.', true);
         msg('Request rejected.');
@@ -193,6 +226,7 @@
       });
     }
     if (revoke) {
+      if (needsApi('revoke grants')) return;
       PlaybookApi.adminRevoke(PlaybookAuth.currentToken(), revoke).then(function (result) {
         if (!result.ok) return msg(result.error || 'Revoke failed.', true);
         msg('Grant revoked.');
@@ -200,6 +234,7 @@
       });
     }
     if (extend) {
+      if (needsApi('extend grants')) return;
       var days = prompt('Extend by how many days?', '30');
       if (!days) return;
       var expiry = new Date(Date.now() + Number(days) * 86400000).toISOString();

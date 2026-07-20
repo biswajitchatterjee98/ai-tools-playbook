@@ -26,7 +26,7 @@ var SEED_USERS = [
   ['guest', 'guestpass', 'learner', 'TRUE'],
   ['student1', 'study@ai', 'learner', 'TRUE'],
   ['student2', 'tools2026', 'learner', 'TRUE'],
-  ['admin', 'playbook1', 'admin', 'TRUE'],
+  ['admin', 'admin@123', 'admin', 'TRUE'],
   ['webisdom', 'webisdom26', 'learner', 'TRUE'],
   ['traininglobe', 'lobe@2026', 'learner', 'TRUE']
 ];

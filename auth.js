@@ -27,7 +27,7 @@
     var session = readSession();
     if (session && session.role) return session.role;
     if (session && session.username === 'admin') return 'admin';
-    return null;
+    return 'learner';
   }
 
   function currentToken() {
@@ -40,7 +40,7 @@
   }
 
   function isAdmin() {
-    return currentRole() === 'admin';
+    return currentUser() === 'admin' && currentRole() === 'admin';
   }
 
   function loginLocalFallback(username, password) {
@@ -53,7 +53,7 @@
       { username: 'guest', password: 'guestpass', role: 'learner' },
       { username: 'student1', password: 'study@ai', role: 'learner' },
       { username: 'student2', password: 'tools2026', role: 'learner' },
-      { username: 'admin', password: 'playbook1', role: 'admin' },
+      { username: 'admin', password: 'admin@123', role: 'admin' },
       { username: 'webisdom', password: 'webisdom26', role: 'learner' },
       { username: 'traininglobe', password: 'lobe@2026', role: 'learner' }
     ];

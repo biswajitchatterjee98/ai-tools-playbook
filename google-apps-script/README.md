@@ -11,7 +11,7 @@
 
 1. In Apps Script, select **`setupSheets`** from the function dropdown.
 2. Click **Run** and approve permissions.
-3. Your spreadsheet will get tabs: **Users**, **SectionPolicies**, **AccessGrants**, **Sessions**, with 10 seed users (including `admin` / `playbook1`).
+3. Your spreadsheet will get tabs: **Users**, **SectionPolicies**, **AccessGrants**, **Sessions**, with 10 seed users (including `admin` / `admin@123`).
 
 ## 3. Set the manifest URL
 
