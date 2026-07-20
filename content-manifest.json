@@ -1,0 +1,544 @@
+{
+  "version": 1,
+  "sections": [
+    {
+      "id": "ai-tools-playbook",
+      "parent_id": null,
+      "title": "AI Tools Playbook",
+      "type": "topic",
+      "sort_order": 1
+    },
+    {
+      "id": "how-to-read-this-playbook",
+      "parent_id": "ai-tools-playbook",
+      "title": "How to read this playbook",
+      "type": "section",
+      "sort_order": 2
+    },
+    {
+      "id": "1-chatgpt",
+      "parent_id": null,
+      "title": "1. ChatGPT",
+      "type": "topic",
+      "sort_order": 3
+    },
+    {
+      "id": "11-reading-material-step-by-step",
+      "parent_id": "1-chatgpt",
+      "title": "1.1 Reading material (step by step)",
+      "type": "section",
+      "sort_order": 4
+    },
+    {
+      "id": "12-how-to-use-chatgpt-5-6-steps",
+      "parent_id": "1-chatgpt",
+      "title": "1.2 How to use ChatGPT (5-6 steps)",
+      "type": "section",
+      "sort_order": 5
+    },
+    {
+      "id": "13-how-to-use-chatgpt-efficiently-5-6-steps",
+      "parent_id": "1-chatgpt",
+      "title": "1.3 How to use ChatGPT efficiently (5-6 steps)",
+      "type": "section",
+      "sort_order": 6
+    },
+    {
+      "id": "14-real-world-example",
+      "parent_id": "1-chatgpt",
+      "title": "1.4 Real-world example",
+      "type": "section",
+      "sort_order": 7
+    },
+    {
+      "id": "15-star-method-for-writing-a-strong-chatgpt-prompt-brief",
+      "parent_id": "1-chatgpt",
+      "title": "1.5 STAR method for writing a strong ChatGPT prompt / brief",
+      "type": "section",
+      "sort_order": 8
+    },
+    {
+      "id": "16-benefits-when-used-efficiently",
+      "parent_id": "1-chatgpt",
+      "title": "1.6 Benefits (when used efficiently)",
+      "type": "section",
+      "sort_order": 9
+    },
+    {
+      "id": "17-media",
+      "parent_id": "1-chatgpt",
+      "title": "1.7 Media",
+      "type": "section",
+      "sort_order": 10
+    },
+    {
+      "id": "2-claude",
+      "parent_id": null,
+      "title": "2. Claude",
+      "type": "topic",
+      "sort_order": 11
+    },
+    {
+      "id": "21-reading-material-step-by-step",
+      "parent_id": "2-claude",
+      "title": "2.1 Reading material (step by step)",
+      "type": "section",
+      "sort_order": 12
+    },
+    {
+      "id": "22-how-to-use-claude-5-6-steps",
+      "parent_id": "2-claude",
+      "title": "2.2 How to use Claude (5-6 steps)",
+      "type": "section",
+      "sort_order": 13
+    },
+    {
+      "id": "23-how-to-use-claude-efficiently-5-6-steps",
+      "parent_id": "2-claude",
+      "title": "2.3 How to use Claude efficiently (5-6 steps)",
+      "type": "section",
+      "sort_order": 14
+    },
+    {
+      "id": "24-real-world-example",
+      "parent_id": "2-claude",
+      "title": "2.4 Real-world example",
+      "type": "section",
+      "sort_order": 15
+    },
+    {
+      "id": "25-create-method-for-writing-a-strong-claude-prompt-brief",
+      "parent_id": "2-claude",
+      "title": "2.5 CREATE method for writing a strong Claude prompt / brief",
+      "type": "section",
+      "sort_order": 16
+    },
+    {
+      "id": "26-benefits",
+      "parent_id": "2-claude",
+      "title": "2.6 Benefits",
+      "type": "section",
+      "sort_order": 17
+    },
+    {
+      "id": "27-media",
+      "parent_id": "2-claude",
+      "title": "2.7 Media",
+      "type": "section",
+      "sort_order": 18
+    },
+    {
+      "id": "3-e-mail-ai-assisted-professional-email",
+      "parent_id": null,
+      "title": "3. E-mail (AI-assisted professional email)",
+      "type": "topic",
+      "sort_order": 19
+    },
+    {
+      "id": "31-reading-material-step-by-step",
+      "parent_id": "3-e-mail-ai-assisted-professional-email",
+      "title": "3.1 Reading material (step by step)",
+      "type": "section",
+      "sort_order": 20
+    },
+    {
+      "id": "32-how-to-use-ai-for-email-5-6-steps",
+      "parent_id": "3-e-mail-ai-assisted-professional-email",
+      "title": "3.2 How to use AI for email (5-6 steps)",
+      "type": "section",
+      "sort_order": 21
+    },
+    {
+      "id": "33-how-to-use-email-efficiently-5-6-steps",
+      "parent_id": "3-e-mail-ai-assisted-professional-email",
+      "title": "3.3 How to use email efficiently (5-6 steps)",
+      "type": "section",
+      "sort_order": 22
+    },
+    {
+      "id": "34-real-world-example",
+      "parent_id": "3-e-mail-ai-assisted-professional-email",
+      "title": "3.4 Real-world example",
+      "type": "section",
+      "sort_order": 23
+    },
+    {
+      "id": "35-star-method-for-writing-a-strong-email-ai-prompt-brief",
+      "parent_id": "3-e-mail-ai-assisted-professional-email",
+      "title": "3.5 STAR method for writing a strong email AI prompt / brief",
+      "type": "section",
+      "sort_order": 24
+    },
+    {
+      "id": "36-benefits",
+      "parent_id": "3-e-mail-ai-assisted-professional-email",
+      "title": "3.6 Benefits",
+      "type": "section",
+      "sort_order": 25
+    },
+    {
+      "id": "37-media",
+      "parent_id": "3-e-mail-ai-assisted-professional-email",
+      "title": "3.7 Media",
+      "type": "section",
+      "sort_order": 26
+    },
+    {
+      "id": "4-gamma",
+      "parent_id": null,
+      "title": "4. Gamma",
+      "type": "topic",
+      "sort_order": 27
+    },
+    {
+      "id": "41-reading-material-step-by-step",
+      "parent_id": "4-gamma",
+      "title": "4.1 Reading material (step by step)",
+      "type": "section",
+      "sort_order": 28
+    },
+    {
+      "id": "42-how-to-use-gamma-5-6-steps",
+      "parent_id": "4-gamma",
+      "title": "4.2 How to use Gamma (5-6 steps)",
+      "type": "section",
+      "sort_order": 29
+    },
+    {
+      "id": "43-how-to-use-gamma-efficiently-5-6-steps",
+      "parent_id": "4-gamma",
+      "title": "4.3 How to use Gamma efficiently (5-6 steps)",
+      "type": "section",
+      "sort_order": 30
+    },
+    {
+      "id": "44-real-world-example",
+      "parent_id": "4-gamma",
+      "title": "4.4 Real-world example",
+      "type": "section",
+      "sort_order": 31
+    },
+    {
+      "id": "45-star-method-for-writing-a-strong-gamma-prompt-brief",
+      "parent_id": "4-gamma",
+      "title": "4.5 STAR method for writing a strong Gamma prompt / brief",
+      "type": "section",
+      "sort_order": 32
+    },
+    {
+      "id": "46-benefits",
+      "parent_id": "4-gamma",
+      "title": "4.6 Benefits",
+      "type": "section",
+      "sort_order": 33
+    },
+    {
+      "id": "47-media",
+      "parent_id": "4-gamma",
+      "title": "4.7 Media",
+      "type": "section",
+      "sort_order": 34
+    },
+    {
+      "id": "5-google-workspace-with-gemini",
+      "parent_id": null,
+      "title": "5. Google Workspace with Gemini",
+      "type": "topic",
+      "sort_order": 35
+    },
+    {
+      "id": "51-reading-material-step-by-step",
+      "parent_id": "5-google-workspace-with-gemini",
+      "title": "5.1 Reading material (step by step)",
+      "type": "section",
+      "sort_order": 36
+    },
+    {
+      "id": "52-how-to-use-google-workspace-gemini-5-6-steps",
+      "parent_id": "5-google-workspace-with-gemini",
+      "title": "5.2 How to use Google Workspace + Gemini (5-6 steps)",
+      "type": "section",
+      "sort_order": 37
+    },
+    {
+      "id": "53-how-to-use-it-efficiently-5-6-steps",
+      "parent_id": "5-google-workspace-with-gemini",
+      "title": "5.3 How to use it efficiently (5-6 steps)",
+      "type": "section",
+      "sort_order": 38
+    },
+    {
+      "id": "54-real-world-example",
+      "parent_id": "5-google-workspace-with-gemini",
+      "title": "5.4 Real-world example",
+      "type": "section",
+      "sort_order": 39
+    },
+    {
+      "id": "55-create-method-for-writing-a-strong-gemini-in-google-workspace-prompt-brief",
+      "parent_id": "5-google-workspace-with-gemini",
+      "title": "5.5 CREATE method for writing a strong Gemini in Google Workspace prompt / brief",
+      "type": "section",
+      "sort_order": 40
+    },
+    {
+      "id": "56-benefits",
+      "parent_id": "5-google-workspace-with-gemini",
+      "title": "5.6 Benefits",
+      "type": "section",
+      "sort_order": 41
+    },
+    {
+      "id": "57-media",
+      "parent_id": "5-google-workspace-with-gemini",
+      "title": "5.7 Media",
+      "type": "section",
+      "sort_order": 42
+    },
+    {
+      "id": "6-makecom",
+      "parent_id": null,
+      "title": "6. make.com",
+      "type": "topic",
+      "sort_order": 43
+    },
+    {
+      "id": "61-reading-material-step-by-step",
+      "parent_id": "6-makecom",
+      "title": "6.1 Reading material (step by step)",
+      "type": "section",
+      "sort_order": 44
+    },
+    {
+      "id": "62-how-to-use-makecom-5-6-steps",
+      "parent_id": "6-makecom",
+      "title": "6.2 How to use make.com (5-6 steps)",
+      "type": "section",
+      "sort_order": 45
+    },
+    {
+      "id": "63-how-to-use-makecom-efficiently-5-6-steps",
+      "parent_id": "6-makecom",
+      "title": "6.3 How to use make.com efficiently (5-6 steps)",
+      "type": "section",
+      "sort_order": 46
+    },
+    {
+      "id": "64-real-world-example",
+      "parent_id": "6-makecom",
+      "title": "6.4 Real-world example",
+      "type": "section",
+      "sort_order": 47
+    },
+    {
+      "id": "65-create-method-for-writing-a-strong-makecom-scenario-design-brief",
+      "parent_id": "6-makecom",
+      "title": "6.5 CREATE method for writing a strong make.com scenario design brief",
+      "type": "section",
+      "sort_order": 48
+    },
+    {
+      "id": "66-benefits",
+      "parent_id": "6-makecom",
+      "title": "6.6 Benefits",
+      "type": "section",
+      "sort_order": 49
+    },
+    {
+      "id": "67-media",
+      "parent_id": "6-makecom",
+      "title": "6.7 Media",
+      "type": "section",
+      "sort_order": 50
+    },
+    {
+      "id": "7-midjourney",
+      "parent_id": null,
+      "title": "7. Midjourney",
+      "type": "topic",
+      "sort_order": 51
+    },
+    {
+      "id": "71-reading-material-step-by-step",
+      "parent_id": "7-midjourney",
+      "title": "7.1 Reading material (step by step)",
+      "type": "section",
+      "sort_order": 52
+    },
+    {
+      "id": "72-how-to-use-midjourney-5-6-steps",
+      "parent_id": "7-midjourney",
+      "title": "7.2 How to use Midjourney (5-6 steps)",
+      "type": "section",
+      "sort_order": 53
+    },
+    {
+      "id": "73-how-to-use-midjourney-efficiently-5-6-steps",
+      "parent_id": "7-midjourney",
+      "title": "7.3 How to use Midjourney efficiently (5-6 steps)",
+      "type": "section",
+      "sort_order": 54
+    },
+    {
+      "id": "74-real-world-example",
+      "parent_id": "7-midjourney",
+      "title": "7.4 Real-world example",
+      "type": "section",
+      "sort_order": 55
+    },
+    {
+      "id": "75-star-method-for-writing-a-strong-midjourney-prompt-brief",
+      "parent_id": "7-midjourney",
+      "title": "7.5 STAR method for writing a strong Midjourney prompt / brief",
+      "type": "section",
+      "sort_order": 56
+    },
+    {
+      "id": "76-benefits",
+      "parent_id": "7-midjourney",
+      "title": "7.6 Benefits",
+      "type": "section",
+      "sort_order": 57
+    },
+    {
+      "id": "77-media",
+      "parent_id": "7-midjourney",
+      "title": "7.7 Media",
+      "type": "section",
+      "sort_order": 58
+    },
+    {
+      "id": "8-notebooklm",
+      "parent_id": null,
+      "title": "8. NotebookLM",
+      "type": "topic",
+      "sort_order": 59
+    },
+    {
+      "id": "81-reading-material-step-by-step",
+      "parent_id": "8-notebooklm",
+      "title": "8.1 Reading material (step by step)",
+      "type": "section",
+      "sort_order": 60
+    },
+    {
+      "id": "82-how-to-use-notebooklm-5-6-steps",
+      "parent_id": "8-notebooklm",
+      "title": "8.2 How to use NotebookLM (5-6 steps)",
+      "type": "section",
+      "sort_order": 61
+    },
+    {
+      "id": "83-how-to-use-notebooklm-efficiently-5-6-steps",
+      "parent_id": "8-notebooklm",
+      "title": "8.3 How to use NotebookLM efficiently (5-6 steps)",
+      "type": "section",
+      "sort_order": 62
+    },
+    {
+      "id": "84-real-world-example",
+      "parent_id": "8-notebooklm",
+      "title": "8.4 Real-world example",
+      "type": "section",
+      "sort_order": 63
+    },
+    {
+      "id": "85-create-method-for-writing-a-strong-notebooklm-prompt-brief",
+      "parent_id": "8-notebooklm",
+      "title": "8.5 CREATE method for writing a strong NotebookLM prompt / brief",
+      "type": "section",
+      "sort_order": 64
+    },
+    {
+      "id": "86-benefits",
+      "parent_id": "8-notebooklm",
+      "title": "8.6 Benefits",
+      "type": "section",
+      "sort_order": 65
+    },
+    {
+      "id": "87-media",
+      "parent_id": "8-notebooklm",
+      "title": "8.7 Media",
+      "type": "section",
+      "sort_order": 66
+    },
+    {
+      "id": "9-notion",
+      "parent_id": null,
+      "title": "9. Notion",
+      "type": "topic",
+      "sort_order": 67
+    },
+    {
+      "id": "91-reading-material-step-by-step",
+      "parent_id": "9-notion",
+      "title": "9.1 Reading material (step by step)",
+      "type": "section",
+      "sort_order": 68
+    },
+    {
+      "id": "92-how-to-use-notion-5-6-steps",
+      "parent_id": "9-notion",
+      "title": "9.2 How to use Notion (5-6 steps)",
+      "type": "section",
+      "sort_order": 69
+    },
+    {
+      "id": "93-how-to-use-notion-efficiently-5-6-steps",
+      "parent_id": "9-notion",
+      "title": "9.3 How to use Notion efficiently (5-6 steps)",
+      "type": "section",
+      "sort_order": 70
+    },
+    {
+      "id": "94-real-world-example",
+      "parent_id": "9-notion",
+      "title": "9.4 Real-world example",
+      "type": "section",
+      "sort_order": 71
+    },
+    {
+      "id": "95-star-method-for-writing-a-strong-notion-ai-workspace-setup-prompt-brief",
+      "parent_id": "9-notion",
+      "title": "9.5 STAR method for writing a strong Notion AI / workspace setup prompt / brief",
+      "type": "section",
+      "sort_order": 72
+    },
+    {
+      "id": "96-benefits",
+      "parent_id": "9-notion",
+      "title": "9.6 Benefits",
+      "type": "section",
+      "sort_order": 73
+    },
+    {
+      "id": "97-media",
+      "parent_id": "9-notion",
+      "title": "9.7 Media",
+      "type": "section",
+      "sort_order": 74
+    },
+    {
+      "id": "bonus-a-simple-multi-tool-workflow",
+      "parent_id": null,
+      "title": "Bonus: A simple multi-tool workflow",
+      "type": "topic",
+      "sort_order": 75
+    },
+    {
+      "id": "quick-comparison-when-to-pick-what",
+      "parent_id": null,
+      "title": "Quick comparison: when to pick what",
+      "type": "topic",
+      "sort_order": 76
+    },
+    {
+      "id": "final-practice-checklist",
+      "parent_id": null,
+      "title": "Final practice checklist",
+      "type": "topic",
+      "sort_order": 77
+    }
+  ]
+}

@@ -73,6 +73,7 @@ body{
   transition:transform .18s ease, filter .18s ease;
 }
 .login-btn:hover{filter:brightness(1.05);transform:translateY(-1px)}
+.login-btn:disabled{opacity:.7;cursor:wait;transform:none}
 .error{
   margin:0 0 1rem;padding:.75rem .9rem;border-radius:10px;
   background:#fdeceb;color:#8a2f2a;font-weight:600;font-size:.92rem;
@@ -113,11 +114,13 @@ body{
         <input id="password" name="password" type="password" autocomplete="current-password" required />
       </div>
       <div class="actions">
-        <button class="login-btn" type="submit">Open playbook</button>
+        <button class="login-btn" type="submit" id="login-submit">Open playbook</button>
       </div>
     </form>
 </section>
 </div>
+<script src="config.js"></script>
+<script src="api.js"></script>
 <script src="auth.js"></script>
 <script>
 (function () {
@@ -132,16 +135,22 @@ body{
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
     var error = document.getElementById('login-error');
-    if (!PlaybookAuth.login(username, password)) {
-      error.hidden = false;
-      return;
-    }
-    error.hidden = true;
-    var next = new URLSearchParams(location.search).get('next') || 'index.html';
-    if (!/^[A-Za-z0-9._\-/?#%=&]+$/.test(next) || next.indexOf('://') !== -1) {
-      next = 'index.html';
-    }
-    location.replace(next);
+    var btn = document.getElementById('login-submit');
+    btn.disabled = true;
+
+    PlaybookAuth.login(username, password).then(function (result) {
+      btn.disabled = false;
+      if (!result.ok) {
+        error.hidden = false;
+        return;
+      }
+      error.hidden = true;
+      var next = new URLSearchParams(location.search).get('next') || 'index.html';
+      if (!/^[A-Za-z0-9._\-/?#%=&]+$/.test(next) || next.indexOf('://') !== -1) {
+        next = 'index.html';
+      }
+      location.replace(next);
+    });
   });
 })();
 </script>

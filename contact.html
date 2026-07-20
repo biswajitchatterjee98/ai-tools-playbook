@@ -10,7 +10,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
 :root{
   --bg:#f3f6f4;--ink:#142033;--muted:#5b6777;--card:#fff;--line:#d7e0db;
-  --accent:#0f7a6c;--accent-deep:#0b5a51;--accent-soft:#e4f4f0;--navy:#12324a;
+  --accent:#0f7a6c;--accent-deep:#0b5a51;--accent-soft:#e4f4f0;--navy:#12324a;--navy-soft:#e8eef3;
   --shadow:0 14px 40px rgba(18,50,74,.08);--max:860px;--sidebar:270px;
 }
 *{box-sizing:border-box}
@@ -72,10 +72,13 @@ footer{grid-column:1/-1;text-align:center;color:var(--muted);font-size:.88rem;ma
   transition:background .18s ease, color .18s ease, border-color .18s ease;
 }
 .toc-logout-btn:hover{background:var(--navy-soft);border-color:#b7c6d0;color:var(--navy)}
+.toc-admin .toc-link{font-weight:700;color:var(--navy);background:var(--navy-soft);text-align:center}
 
 </style>
 </head>
 <body>
+<script src="config.js"></script>
+<script src="api.js"></script>
 <script src="auth.js"></script>
 <script>PlaybookAuth.requireAuth('login.html');</script>
 <div class="wrap">
@@ -92,6 +95,7 @@ footer{grid-column:1/-1;text-align:center;color:var(--muted);font-size:.88rem;ma
 <ul class="toc-topics">
 <li class="toc-topic"><a class="toc-link" href="index.html">Back to Playbook</a></li>
 <li class="toc-topic toc-contact"><a class="toc-link" href="contact.html">Contact Us</a></li>
+<li class="toc-topic toc-admin" hidden><a class="toc-link" href="admin.html">Admin</a></li>
 <li class="toc-topic toc-logout"><button type="button" class="toc-link toc-logout-btn" id="logout-btn">Sign out</button></li>
 </ul>
 </nav>
@@ -132,6 +136,10 @@ footer{grid-column:1/-1;text-align:center;color:var(--muted);font-size:.88rem;ma
 <script>
 if (new URLSearchParams(window.location.search).get('submitted') === 'true') {
   document.getElementById('contact-status').hidden = false;
+}
+if (PlaybookAuth.isAdmin()) {
+  var adminLink = document.querySelector('.toc-admin');
+  if (adminLink) adminLink.hidden = false;
 }
 </script>
 <script>
