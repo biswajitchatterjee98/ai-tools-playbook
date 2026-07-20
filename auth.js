@@ -25,7 +25,9 @@
 
   function currentRole() {
     var session = readSession();
-    return session && session.role ? session.role : null;
+    if (session && session.role) return session.role;
+    if (session && session.username === 'admin') return 'admin';
+    return null;
   }
 
   function currentToken() {

@@ -21,6 +21,21 @@ HERO_SNIPPET = """<header class="hero">
 </div>
 </header>"""
 
+ADMIN_REVEAL_SCRIPT = """<script>
+(function () {
+  function revealAdminNav() {
+    if (!PlaybookAuth.isAdmin()) return;
+    var link = document.querySelector('.toc-admin');
+    if (link) link.hidden = false;
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', revealAdminNav);
+  } else {
+    revealAdminNav();
+  }
+})();
+</script>"""
+
 
 def slugify(title: str) -> str:
     s = re.sub(r"[^a-z0-9\s-]", "", title.lower())
@@ -340,6 +355,7 @@ def build() -> None:
 <script src="api.js"></script>
 <script src="auth.js"></script>
 <script>PlaybookAuth.requireAuth('login.html');</script>
+{ADMIN_REVEAL_SCRIPT}
 <div class="wrap">
 {HERO_SNIPPET}
 {"".join(toc_parts)}

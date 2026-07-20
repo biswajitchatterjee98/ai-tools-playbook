@@ -81,6 +81,20 @@ footer{grid-column:1/-1;text-align:center;color:var(--muted);font-size:.88rem;ma
 <script src="api.js"></script>
 <script src="auth.js"></script>
 <script>PlaybookAuth.requireAuth('login.html');</script>
+<script>
+(function () {
+  function revealAdminNav() {
+    if (!PlaybookAuth.isAdmin()) return;
+    var link = document.querySelector('.toc-admin');
+    if (link) link.hidden = false;
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', revealAdminNav);
+  } else {
+    revealAdminNav();
+  }
+})();
+</script>
 <div class="wrap">
 <header class="hero">
 <img class="brand-logo" src="images/traininglobe-logo.png" alt="Traininglobe" />

@@ -15,6 +15,9 @@
         titleById[sec.id] = sec.title;
       });
       return data;
+    }).catch(function () {
+      manifest = { sections: [] };
+      return manifest;
     });
   }
 
@@ -174,11 +177,16 @@
   }
 
   function init() {
-    Promise.all([loadManifest(), loadPermissions()]).then(function () {
-      applyGates();
-      showAdminLink();
-      wireModal();
-    });
+    showAdminLink();
+    Promise.all([loadManifest(), loadPermissions()])
+      .then(function () {
+        applyGates();
+        wireModal();
+      })
+      .catch(function () {
+        applyGates();
+      })
+      .finally(showAdminLink);
   }
 
   global.PlaybookAccess = {
