@@ -24,15 +24,17 @@ HERO_SNIPPET = """<header class="hero">
 ADMIN_REVEAL_SCRIPT = """<script>
 (function () {
   function revealAdminNav() {
+    var user = PlaybookAuth.currentUser();
+    var userEl = document.querySelector('.toc-user');
+    if (userEl && user) {
+      userEl.innerHTML = 'Signed in as <strong>' + user + '</strong>';
+    }
     if (!PlaybookAuth.isAdmin()) return;
     var link = document.querySelector('.toc-admin');
-    if (link) link.hidden = false;
+    if (link) link.classList.add('is-visible');
   }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', revealAdminNav);
-  } else {
-    revealAdminNav();
-  }
+  revealAdminNav();
+  document.addEventListener('DOMContentLoaded', revealAdminNav);
 })();
 </script>"""
 
@@ -319,8 +321,9 @@ def build() -> None:
         )
     toc_parts.extend(
         [
+            '<li class="toc-user" aria-live="polite"></li>',
             '<li class="toc-topic toc-contact"><a class="toc-link" href="contact.html">Contact Us</a></li>',
-            '<li class="toc-topic toc-admin" hidden><a class="toc-link" href="admin.html">Admin</a></li>',
+            '<li class="toc-topic toc-admin"><a class="toc-link" href="admin.html">Admin</a></li>',
             '<li class="toc-topic toc-logout"><button type="button" class="toc-link toc-logout-btn" id="logout-btn">Sign out</button></li>',
             "</ul></nav>",
         ]
@@ -355,7 +358,6 @@ def build() -> None:
 <script src="api.js"></script>
 <script src="auth.js"></script>
 <script>PlaybookAuth.requireAuth('login.html');</script>
-{ADMIN_REVEAL_SCRIPT}
 <div class="wrap">
 {HERO_SNIPPET}
 {"".join(toc_parts)}
@@ -386,6 +388,7 @@ def build() -> None:
 <script>
 {playbook_js}
 </script>
+{ADMIN_REVEAL_SCRIPT}
 </body>
 </html>
 """

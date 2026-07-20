@@ -173,7 +173,10 @@
 
   function showAdminLink() {
     var adminLink = document.querySelector('.toc-admin');
-    if (adminLink && global.PlaybookAuth.isAdmin()) adminLink.hidden = false;
+    if (adminLink && global.PlaybookAuth.isAdmin()) adminLink.classList.add('is-visible');
+    var userEl = document.querySelector('.toc-user');
+    var user = global.PlaybookAuth.currentUser();
+    if (userEl && user) userEl.innerHTML = 'Signed in as <strong>' + user + '</strong>';
   }
 
   function init() {

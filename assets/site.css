@@ -343,7 +343,11 @@ main > .topic-panel > p:first-of-type strong{
   transition:background .18s ease, color .18s ease, border-color .18s ease;
 }
 .toc-logout-btn:hover{background:var(--navy-soft);border-color:#b7c6d0;color:var(--navy)}
+.toc-admin{display:none}
+.toc-admin.is-visible{display:list-item}
 .toc-admin .toc-link{font-weight:700;color:var(--navy);background:var(--navy-soft);text-align:center}
+.toc-user{margin:.75rem .35rem .25rem;padding:.45rem .55rem;border-radius:10px;background:var(--navy-soft);font-size:.78rem;color:var(--muted)}
+.toc-user strong{color:var(--navy)}
 .toc-subs a.is-locked::after{content:"";display:inline-block;width:.55rem;height:.55rem;margin-left:.35rem;border:1.5px solid currentColor;border-radius:2px;opacity:.65;vertical-align:middle}
 .content-block.is-gated .content-block-body{display:none}
 .content-block.is-gated.is-pending .content-block-body{display:none}

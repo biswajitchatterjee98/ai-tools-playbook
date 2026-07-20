@@ -72,7 +72,11 @@ footer{grid-column:1/-1;text-align:center;color:var(--muted);font-size:.88rem;ma
   transition:background .18s ease, color .18s ease, border-color .18s ease;
 }
 .toc-logout-btn:hover{background:var(--navy-soft);border-color:#b7c6d0;color:var(--navy)}
+.toc-admin{display:none}
+.toc-admin.is-visible{display:list-item}
 .toc-admin .toc-link{font-weight:700;color:var(--navy);background:var(--navy-soft);text-align:center}
+.toc-user{margin:.75rem .35rem .25rem;padding:.45rem .55rem;border-radius:10px;background:var(--navy-soft);font-size:.78rem;color:var(--muted)}
+.toc-user strong{color:var(--navy)}
 
 </style>
 </head>
@@ -84,15 +88,15 @@ footer{grid-column:1/-1;text-align:center;color:var(--muted);font-size:.88rem;ma
 <script>
 (function () {
   function revealAdminNav() {
+    var user = PlaybookAuth.currentUser();
+    var userEl = document.querySelector('.toc-user');
+    if (userEl && user) userEl.innerHTML = 'Signed in as <strong>' + user + '</strong>';
     if (!PlaybookAuth.isAdmin()) return;
     var link = document.querySelector('.toc-admin');
-    if (link) link.hidden = false;
+    if (link) link.classList.add('is-visible');
   }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', revealAdminNav);
-  } else {
-    revealAdminNav();
-  }
+  revealAdminNav();
+  document.addEventListener('DOMContentLoaded', revealAdminNav);
 })();
 </script>
 <div class="wrap">
@@ -108,8 +112,9 @@ footer{grid-column:1/-1;text-align:center;color:var(--muted);font-size:.88rem;ma
 <h2>Navigate</h2>
 <ul class="toc-topics">
 <li class="toc-topic"><a class="toc-link" href="index.html">Back to Playbook</a></li>
+<li class="toc-user" aria-live="polite"></li>
 <li class="toc-topic toc-contact"><a class="toc-link" href="contact.html">Contact Us</a></li>
-<li class="toc-topic toc-admin" hidden><a class="toc-link" href="admin.html">Admin</a></li>
+<li class="toc-topic toc-admin"><a class="toc-link" href="admin.html">Admin</a></li>
 <li class="toc-topic toc-logout"><button type="button" class="toc-link toc-logout-btn" id="logout-btn">Sign out</button></li>
 </ul>
 </nav>
@@ -153,7 +158,11 @@ if (new URLSearchParams(window.location.search).get('submitted') === 'true') {
 }
 if (PlaybookAuth.isAdmin()) {
   var adminLink = document.querySelector('.toc-admin');
-  if (adminLink) adminLink.hidden = false;
+  if (adminLink) adminLink.classList.add('is-visible');
+}
+var tocUser = document.querySelector('.toc-user');
+if (tocUser && PlaybookAuth.currentUser()) {
+  tocUser.innerHTML = 'Signed in as <strong>' + PlaybookAuth.currentUser() + '</strong>';
 }
 </script>
 <script>
