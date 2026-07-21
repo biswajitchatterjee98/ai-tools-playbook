@@ -335,14 +335,6 @@ main > .topic-panel > p:first-of-type strong{
 }
 
 
-.toc-logout{margin-top:.45rem}
-.toc-logout-btn{
-  display:block;width:100%;border:1px solid var(--line);background:#fff;color:var(--navy);
-  border-radius:12px;padding:.62rem .6rem;cursor:pointer;
-  font:600 .92rem "Source Sans 3",sans-serif;text-align:center;
-  transition:background .18s ease, color .18s ease, border-color .18s ease;
-}
-.toc-logout-btn:hover{background:var(--navy-soft);border-color:#b7c6d0;color:var(--navy)}
 .toc-admin{display:none}
 .toc-admin.is-visible{display:list-item}
 .toc-admin .toc-link{font-weight:700;color:var(--navy);background:var(--navy-soft);text-align:center}

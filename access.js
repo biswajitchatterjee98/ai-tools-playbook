@@ -3,9 +3,11 @@
   var permissions = null;
   var titleById = {};
 
-  function isLocalToken() {
+  function isOfflineToken() {
     var token = global.PlaybookAuth.currentToken();
-    return token && String(token).indexOf('local-') === 0;
+    if (!token) return false;
+    var t = String(token);
+    return t.indexOf('local-') === 0 || t.indexOf('hub-') === 0;
   }
 
   function loadManifest() {
@@ -22,7 +24,7 @@
   }
 
   function loadPermissions() {
-    if (!global.PlaybookApi || !global.PlaybookApi.configured() || isLocalToken()) {
+    if (!global.PlaybookApi || !global.PlaybookApi.configured() || isOfflineToken()) {
       permissions = {
         restricted_sections: [],
         granted_sections: [],
@@ -150,7 +152,7 @@
       var notes = document.getElementById('access-notes').value;
       var err = document.getElementById('access-form-error');
 
-      if (!global.PlaybookApi.configured() || isLocalToken()) {
+      if (!global.PlaybookApi.configured() || isOfflineToken()) {
         err.textContent = 'Access requests require the Google Sheet API. Configure API_URL in config.js.';
         err.hidden = false;
         return;

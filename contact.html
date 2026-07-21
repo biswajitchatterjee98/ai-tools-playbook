@@ -64,14 +64,6 @@ footer{grid-column:1/-1;text-align:center;color:var(--muted);font-size:.88rem;ma
 @media(max-width:960px){header.hero{flex-direction:column;align-items:flex-start;gap:1.1rem}.brand-logo{width:min(340px,100%)}.contact-grid{grid-template-columns:1fr}.field.full,.contact-actions{grid-column:1}}
 
 
-.toc-logout{margin-top:.45rem}
-.toc-logout-btn{
-  display:block;width:100%;border:1px solid var(--line);background:#fff;color:var(--navy);
-  border-radius:12px;padding:.62rem .6rem;cursor:pointer;
-  font:600 .92rem "Source Sans 3",sans-serif;text-align:center;
-  transition:background .18s ease, color .18s ease, border-color .18s ease;
-}
-.toc-logout-btn:hover{background:var(--navy-soft);border-color:#b7c6d0;color:var(--navy)}
 .toc-admin{display:none}
 .toc-admin.is-visible{display:list-item}
 .toc-admin .toc-link{font-weight:700;color:var(--navy);background:var(--navy-soft);text-align:center}
@@ -84,7 +76,6 @@ footer{grid-column:1/-1;text-align:center;color:var(--muted);font-size:.88rem;ma
 <script src="config.js"></script>
 <script src="api.js"></script>
 <script src="auth.js"></script>
-<script>PlaybookAuth.requireAuth('login.html');</script>
 <script>
 (function () {
   function revealAdminNav() {
@@ -115,7 +106,6 @@ footer{grid-column:1/-1;text-align:center;color:var(--muted);font-size:.88rem;ma
 <li class="toc-user" aria-live="polite"></li>
 <li class="toc-topic toc-contact"><a class="toc-link" href="contact.html">Contact Us</a></li>
 <li class="toc-topic toc-admin"><a class="toc-link" href="admin.html">Admin</a></li>
-<li class="toc-topic toc-logout"><button type="button" class="toc-link toc-logout-btn" id="logout-btn">Sign out</button></li>
 </ul>
 </nav>
 <main>
@@ -164,19 +154,6 @@ var tocUser = document.querySelector('.toc-user');
 if (tocUser && PlaybookAuth.currentUser()) {
   tocUser.innerHTML = 'Signed in as <strong>' + PlaybookAuth.currentUser() + '</strong>';
 }
-</script>
-<script>
-(function(){
-
-  var logoutBtn = document.getElementById('logout-btn');
-  if (logoutBtn) {
-    logoutBtn.addEventListener('click', function () {
-      PlaybookAuth.logout();
-      location.replace('login.html');
-    });
-  }
-
-})();
 </script>
 </body>
 </html>

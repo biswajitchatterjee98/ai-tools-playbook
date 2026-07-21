@@ -108,14 +108,6 @@
   });
 
 
-  var logoutBtn = document.getElementById('logout-btn');
-  if (logoutBtn) {
-    logoutBtn.addEventListener('click', function () {
-      PlaybookAuth.logout();
-      location.replace('login.html');
-    });
-  }
-
   var initialTopic = topicIdFromHash(location.hash);
   if (initialTopic) {
     showTopic(initialTopic, location.hash.replace(/^#/, ''));

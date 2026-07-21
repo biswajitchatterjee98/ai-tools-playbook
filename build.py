@@ -324,7 +324,6 @@ def build() -> None:
             '<li class="toc-user" aria-live="polite"></li>',
             '<li class="toc-topic toc-contact"><a class="toc-link" href="contact.html">Contact Us</a></li>',
             '<li class="toc-topic toc-admin"><a class="toc-link" href="admin.html">Admin</a></li>',
-            '<li class="toc-topic toc-logout"><button type="button" class="toc-link toc-logout-btn" id="logout-btn">Sign out</button></li>',
             "</ul></nav>",
         ]
     )
@@ -357,7 +356,6 @@ def build() -> None:
 <script src="config.js"></script>
 <script src="api.js"></script>
 <script src="auth.js"></script>
-<script>PlaybookAuth.requireAuth('login.html');</script>
 <div class="wrap">
 {HERO_SNIPPET}
 {"".join(toc_parts)}
