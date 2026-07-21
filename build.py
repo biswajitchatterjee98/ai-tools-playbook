@@ -306,7 +306,12 @@ def build() -> None:
     manifest = {"version": 1, "sections": manifest_sections}
     (ROOT / "content-manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
-    toc_parts = ['<nav class="toc"><h2>Contents</h2><ul class="toc-topics">']
+    toc_parts = [
+        '<nav class="toc" id="site-toc"><div class="toc-head">'
+        '<h2>Contents</h2>'
+        '<button type="button" class="toc-close" id="toc-close" aria-label="Close contents">×</button>'
+        '</div><ul class="toc-topics">'
+    ]
     for topic in toc_topics:
         subs = "".join(
             f'<li><a href="#{esc(c["id"])}" data-section-id="{esc(c["id"])}">{esc(c["title"])}</a></li>'
@@ -357,6 +362,10 @@ def build() -> None:
 <script src="api.js"></script>
 <script src="auth.js"></script>
 <div class="wrap">
+<button type="button" class="toc-menu-btn" id="toc-menu-btn" aria-controls="site-toc" aria-expanded="false" aria-label="Open contents">
+<span class="toc-menu-bars" aria-hidden="true"></span>
+</button>
+<div class="toc-backdrop" id="toc-backdrop" hidden></div>
 {HERO_SNIPPET}
 {"".join(toc_parts)}
 <main>{"".join(panel_html)}</main>

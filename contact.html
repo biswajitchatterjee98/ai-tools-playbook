@@ -22,7 +22,25 @@ body{
     linear-gradient(180deg,#eef3f0 0%, var(--bg) 40%, #eef2f5 100%);
 }
 .wrap{max-width:calc(var(--max) + var(--sidebar) + 64px);margin:0 auto;padding:1.5rem 1.25rem 3.5rem;display:grid;grid-template-columns:var(--sidebar) 1fr;gap:1.5rem}
-@media(max-width:960px){.wrap{grid-template-columns:1fr}.toc{position:static!important}}
+.toc-menu-btn{display:none}
+.toc-backdrop{display:none}
+.toc-close{display:none}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin:0 0 .35rem}
+.toc-head h2{margin:0 .35rem 0;flex:1}
+@media(max-width:960px){.wrap{grid-template-columns:1fr;padding-top:4.25rem}.toc{position:static!important}
+.toc-menu-btn{display:inline-flex;align-items:center;justify-content:center;position:fixed;top:1rem;left:1rem;z-index:70;width:2.75rem;height:2.75rem;padding:0;border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:var(--shadow);cursor:pointer}
+.toc-menu-bars,.toc-menu-bars::before,.toc-menu-bars::after{display:block;width:1.15rem;height:2px;border-radius:2px;background:var(--navy)}
+.toc-menu-bars{position:relative}
+.toc-menu-bars::before,.toc-menu-bars::after{content:"";position:absolute;left:0}
+.toc-menu-bars::before{top:-6px}
+.toc-menu-bars::after{top:6px}
+.toc-backdrop{display:block;position:fixed;inset:0;z-index:55;background:rgba(18,50,74,.42);opacity:0;pointer-events:none;transition:opacity .22s ease}
+body.toc-open .toc-backdrop{opacity:1;pointer-events:auto}
+.toc{position:fixed!important;top:0;left:0;bottom:0;z-index:60;width:min(300px,88vw);max-height:none;margin:0;border-radius:0 18px 18px 0;transform:translateX(-105%);transition:transform .24s ease;overflow:auto}
+body.toc-open .toc{transform:none}
+.toc-close{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border:0;border-radius:8px;background:transparent;color:var(--navy);font:700 1.25rem/1 "Source Sans 3",sans-serif;cursor:pointer}
+.toc-close:hover{background:var(--navy-soft)}
+}
 header.hero{
   grid-column:1/-1;overflow:hidden;position:relative;
   background:linear-gradient(135deg, rgba(18,50,74,.92), rgba(11,90,81,.88) 55%, rgba(15,122,108,.85));
@@ -91,6 +109,10 @@ footer{grid-column:1/-1;text-align:center;color:var(--muted);font-size:.88rem;ma
 })();
 </script>
 <div class="wrap">
+<button type="button" class="toc-menu-btn" id="toc-menu-btn" aria-controls="site-toc" aria-expanded="false" aria-label="Open contents">
+<span class="toc-menu-bars" aria-hidden="true"></span>
+</button>
+<div class="toc-backdrop" id="toc-backdrop" hidden></div>
 <header class="hero">
 <img class="brand-logo" src="images/traininglobe-logo.png" alt="Traininglobe" />
 <div class="hero-copy">
@@ -99,8 +121,11 @@ footer{grid-column:1/-1;text-align:center;color:var(--muted);font-size:.88rem;ma
 <p>Send a question, suggestion, or training requirement to the Traininglobe team.</p>
 </div>
 </header>
-<nav class="toc">
+<nav class="toc" id="site-toc">
+<div class="toc-head">
 <h2>Navigate</h2>
+<button type="button" class="toc-close" id="toc-close" aria-label="Close contents">×</button>
+</div>
 <ul class="toc-topics">
 <li class="toc-topic"><a class="toc-link" href="index.html">Back to Playbook</a></li>
 <li class="toc-user" aria-live="polite"></li>
@@ -154,6 +179,31 @@ var tocUser = document.querySelector('.toc-user');
 if (tocUser && PlaybookAuth.currentUser()) {
   tocUser.innerHTML = 'Signed in as <strong>' + PlaybookAuth.currentUser() + '</strong>';
 }
+(function () {
+  function isMobileToc() { return window.matchMedia('(max-width: 960px)').matches; }
+  function setTocOpen(open) {
+    document.body.classList.toggle('toc-open', open);
+    var btn = document.getElementById('toc-menu-btn');
+    var backdrop = document.getElementById('toc-backdrop');
+    var toc = document.getElementById('site-toc');
+    if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (backdrop) backdrop.hidden = !open;
+    if (toc && isMobileToc()) toc.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+  var tocMenuBtn = document.getElementById('toc-menu-btn');
+  if (tocMenuBtn) tocMenuBtn.addEventListener('click', function () {
+    setTocOpen(!document.body.classList.contains('toc-open'));
+  });
+  var tocBackdrop = document.getElementById('toc-backdrop');
+  if (tocBackdrop) tocBackdrop.addEventListener('click', function () { setTocOpen(false); });
+  var tocClose = document.getElementById('toc-close');
+  if (tocClose) tocClose.addEventListener('click', function () { setTocOpen(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setTocOpen(false); });
+  if (isMobileToc()) {
+    var tocEl = document.getElementById('site-toc');
+    if (tocEl) tocEl.setAttribute('aria-hidden', 'true');
+  }
+})();
 </script>
 </body>
 </html>

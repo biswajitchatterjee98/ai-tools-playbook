@@ -71,6 +71,7 @@
       }
       showTopic(topicId, topicId);
       history.replaceState(null, '', '#' + topicId);
+      if (isMobileToc()) closeToc();
       return;
     }
 
@@ -85,6 +86,7 @@
         if (topicId) {
           showTopic(topicId, targetId);
           history.replaceState(null, '', href);
+          if (isMobileToc()) closeToc();
         }
         return;
       }
@@ -107,6 +109,43 @@
     card.classList.add('is-playing');
   });
 
+
+
+  function isMobileToc() {
+    return window.matchMedia('(max-width: 960px)').matches;
+  }
+
+  function setTocOpen(open) {
+    document.body.classList.toggle('toc-open', open);
+    var btn = document.getElementById('toc-menu-btn');
+    var backdrop = document.getElementById('toc-backdrop');
+    var toc = document.getElementById('site-toc');
+    if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (backdrop) backdrop.hidden = !open;
+    if (toc && isMobileToc()) toc.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+
+  function closeToc() {
+    setTocOpen(false);
+  }
+
+  var tocMenuBtn = document.getElementById('toc-menu-btn');
+  if (tocMenuBtn) {
+    tocMenuBtn.addEventListener('click', function () {
+      setTocOpen(!document.body.classList.contains('toc-open'));
+    });
+  }
+  var tocBackdrop = document.getElementById('toc-backdrop');
+  if (tocBackdrop) tocBackdrop.addEventListener('click', closeToc);
+  var tocClose = document.getElementById('toc-close');
+  if (tocClose) tocClose.addEventListener('click', closeToc);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeToc();
+  });
+  if (isMobileToc()) {
+    var tocEl = document.getElementById('site-toc');
+    if (tocEl) tocEl.setAttribute('aria-hidden', 'true');
+  }
 
   var initialTopic = topicIdFromHash(location.hash);
   if (initialTopic) {
