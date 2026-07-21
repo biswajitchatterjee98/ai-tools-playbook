@@ -137,11 +137,8 @@ footer{grid-column:1/-1;text-align:center;color:var(--muted);font-size:.88rem;ma
 <section class="contact" id="contact">
 <h2>Send a message</h2>
 <p class="contact-intro">Fill in the details below. Your message will be delivered to our team.</p>
-<form id="contact-form" class="contact-grid" action="https://formsubmit.co/atharv.kumar@webisdom.com" method="POST">
-<input type="hidden" name="_subject" value="New message from the AI Tools Playbook" />
-<input type="hidden" name="_template" value="table" />
-<input type="hidden" name="_captcha" value="false" />
-<input type="hidden" name="_next" value="https://biswajitchatterjee98.github.io/ai-tools-playbook/contact.html?submitted=true" />
+<form id="contact-form" class="contact-grid">
+<input type="hidden" name="source" value="AI-Tools-Playbook" />
 <div class="field">
 <label for="contact-name">Name</label>
 <input id="contact-name" name="name" type="text" autocomplete="name" required />
@@ -168,6 +165,40 @@ footer{grid-column:1/-1;text-align:center;color:var(--muted);font-size:.88rem;ma
 <footer>Traininglobe · AI Tools Playbook</footer>
 </div>
 <script>
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = e.target;
+  var status = document.getElementById('contact-status');
+  var btn = form.querySelector('.contact-submit');
+  
+  status.hidden = true;
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  
+  var data = new URLSearchParams(new FormData(form));
+  
+  fetch('https://script.google.com/macros/s/AKfycbzaJ6-1C7LhIPkBl6xpBTyeU0xys-PrqjahI1MmEtCGaEvA3WPecm7-oGvdBLhSxaA4/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    body: data
+  }).then(function() {
+    form.reset();
+    status.textContent = 'Thank you. Your message has been sent.';
+    status.style.color = '';
+    status.style.background = '';
+    status.hidden = false;
+    btn.disabled = false;
+    btn.textContent = 'Send message';
+  }).catch(function(error) {
+    status.textContent = 'An error occurred. Please try again.';
+    status.style.color = '#8a2f2a';
+    status.style.background = '#fdeceb';
+    status.hidden = false;
+    btn.disabled = false;
+    btn.textContent = 'Send message';
+  });
+});
+
 if (new URLSearchParams(window.location.search).get('submitted') === 'true') {
   document.getElementById('contact-status').hidden = false;
 }
